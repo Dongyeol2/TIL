@@ -1,0 +1,25 @@
+ol, ol li {
+  font-size: 1.2rem;
+}
+
+ul, ul li {
+  font-size: 1.2em;
+}
+.vw {
+font-size: 10vw;
+}
+.div-vw {
+  width: 15vw;
+  height: 15vw;
+  background-color: indianred;
+}
+.div-vh {
+  width: 15vh;
+  height: 15vh;
+  background-color: rgb(37, 188, 214);
+}
+.div-vmin {
+  width: 15vh;
+  height: 15vh;
+  background-color: rgb(112, 236, 139);
+}

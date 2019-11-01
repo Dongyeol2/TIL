@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+static_sample
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'pages/stylesheets/sample.css'%}"> 
+{% endblock %}
+
+{% block body %}
+   <h1>정적 파일 출력 실습</h1>
+  <img src="{% static 'pages/images/maxresdefault.jpg'%}" alt=""><br>
+  <img src="/static/pages/images/maxresdefault.jpg" alt="">
+{% endblock %}

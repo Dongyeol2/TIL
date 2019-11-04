@@ -16,4 +16,6 @@
 10. 파이썬기반 Django Database 연동 (Sqlite3)
 	- [Django Model ORM](./6.hphk_django_db.md)
 	- [Django CRUD](./7.hphk_django_db_crud.md)
+	- [전생 직업 APP 만들기 실습](./8.hphk_django_exam_gaker.md)
+	- [Django Movie Project](./9.hphk_django_movie_project.md)
 	

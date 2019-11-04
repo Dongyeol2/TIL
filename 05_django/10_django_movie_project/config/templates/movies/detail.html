@@ -59,9 +59,14 @@
       {{movie.description}}
     </div>
   </div>
-  <input type="button" class="btn btn-primary" value="수정" onclick="location.href='{% url 'movies:edit' movie.pk %}'">&nbsp;
+  <input type="button" class="btn btn-primary" value="수정" onclick="location.href='{% url 'movies:update' movie.pk %}'">&nbsp;
   <input type="button" class="btn btn-primary" value="목록" onclick="location.href='{% url 'movies:index' %}'">
-  <input type="button" class="btn btn-danger" value="삭제" onclick="location.href='{% url 'movies:delete' movie.pk %}'">
+  <!-- <input type="button" class="btn btn-danger" value="삭제" onclick="location.href='{% url 'movies:delete' movie.pk %}'"> -->
+  <form action="{% url 'movies:delete' movie.pk %}" method="POST" style="display: inline;" onclick="return confirm() 진짜 삭제?">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-danger" value="삭제"/>
+  </form>
+
 </form>
 
 {% endblock body %}

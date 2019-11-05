@@ -19,3 +19,5 @@
 	- [전생 직업 APP 만들기 실습](./8.hphk_django_exam_gaker.md)
 	- [Django Movie Project](./9.hphk_django_movie_project.md)
 	
+11. [Bootstrap seeddata](./10.hphk_bootstrap_seeddata.md)
+12. [RESTful API](./11.hphk_restful_api.md)

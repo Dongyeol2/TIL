@@ -15,6 +15,7 @@ def index(request):
 # def new(request):
 #     return render(request,'movies/new.html')
 
+
 def create(request):
     # POST 요청일 경우 -> 게시글 생성 로직 수행
     if request.method == 'POST':

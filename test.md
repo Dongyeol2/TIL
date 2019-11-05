@@ -127,3 +127,10 @@ HTTP URI를 통해 자원(Resource)을 명시하고, HTTP Method(GET, POST, PUT,
     - ```article.comment``` 형태로는 가져올 수 없다. 게시글에 몇 개의 댓글이 있는지 ```Django ORM``` 측에서 보장할 수가 없다.
   + Comment(N) : Article(1) -> ```article```
     + 댓글의 경우 ```comment.article``` 식으로 접근이 가능하다. 어떤 댓글이든 본인이 참조하고 있는 게시글은 반드시 있다. 따라서 이런 식으로 접근할 수 있다.
+
+
+
+
+
+
+

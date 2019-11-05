@@ -19,11 +19,11 @@ class Movie(models.Model):
 class Comment(models.Model) : 
     # related_name : 부모 테이블에서 역으로 참조할 때 기본적으로 모델이름_set 형식으로 불러온다. 
     # related_name이라는 값을 설정해서 _set 명령어를 임의로 변경할 수 있다.
-    title = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
     content= models.CharField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    
+
 
     # Model Level에서 Metadata 설정
     class Meta:

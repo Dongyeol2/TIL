@@ -83,7 +83,7 @@ def template_language(request):
 def isbirth(request):
     today = datetime.now()
     result = False
-    if today.month == 10 and today.day == 3:
+    if today.month == 2 and today.day == 13:
         result = True
     
     context = {

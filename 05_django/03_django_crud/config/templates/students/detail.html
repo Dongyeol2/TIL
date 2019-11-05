@@ -9,6 +9,6 @@
 <P>수정시각:{{student.updated_at}}</P>
 <hr>
 <a href="{% url 'students:index' %}">[BACK]</a>
-<a href="{% url 'students:edit' student.pk %}">[EDIT]</a>
+<a href="{% url 'students:update' student.pk %}">[EDIT]</a>
 <a href="{% url 'students:delete' student.pk %}">[DELETE]</a>
 {% endblock body %}

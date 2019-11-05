@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import Movie
+from .models import Movie, Comment
 import csv
 from datetime import datetime
 
@@ -68,8 +68,10 @@ def update(request,movie_pk):
 
 def detail(request,movie_pk):
     movie = Movie.objects.get(pk=movie_pk)
+    comments = movie.comment_set.all()
     context = {
-        'movie':movie
+        'movie':movie,
+        'comments':comments,
     }
     return render(request,'movies/detail.html',context)
     
@@ -79,6 +81,25 @@ def delete(request,movie_pk):
 
     return redirect('movies:index')
 
+# 댓글 생성 뷰 함수
+def comments_create(request, movie_pk):
+    movie = Movie.objects.get(pk=movie_pk)
+    if request.method == 'POST':
+        content = request.POST.get('content')
+        comment = Comment(movie=movie, content=content)
+        comment.save()
+        return redirect('movies:detail', movie_pk)
+
+    else:
+        return redirect('movies:detail', movie_pk)
+
+# 댓글 삭제 뷰 함수
+def comments_delete(request, movie_pk, comment_pk):
+    if request.method == 'POST':
+        comment = Comment.object.get(pk=comment_pk)
+        comment.delete()
+    return redirect('movies:detail', movie_pk)
+    
 # def csvfilesave(request):
 #     with open('data.csv', newline='', encoding='UTF8') as csvfile:
 #         reader = csv.DictReader(csvfile)

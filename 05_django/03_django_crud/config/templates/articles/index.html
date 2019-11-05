@@ -1,11 +1,18 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block css %}
 
 {% endblock css %}
 
 {% block body %}
 <h1 class='text-center'>Articles</h1>
-<a href="{% url 'articles:new' %}">[NEW]</a>
+
+<!-- static file 저장해서 제일 좋아하는 사진 띄우기 -->
+<div class="text-center">
+  <img src="{% static 'articles/image/image.jpg' %}" alt="nature" style="max-width : 500px;">
+</div>
+
+<a href="{% url 'articles:create' %}">[NEW]</a>
 
 {% for article in articles %}
 <hr>

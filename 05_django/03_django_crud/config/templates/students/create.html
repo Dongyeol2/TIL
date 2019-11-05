@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1 class='text-center'></h1>
+<form action="{% url 'students:create' %}" method='POST'>
+{% csrf_token %}
+<label for="name">NAME</lable> <input id="name" type="text" name="name"><br>
+<label for="age">AGE</lable> <input id="age" type="number" name="age"><br>
+<lable for="email">EMAIL</lable> <input id="email" type="email" name="email"><br>
+
+<input type="submit">
+</form>
+<hr>
+<a href="{% url 'students:index' %}">BACK</a>
+{% endblock body %}

@@ -134,3 +134,62 @@ HTTP URI를 통해 자원(Resource)을 명시하고, HTTP Method(GET, POST, PUT,
 
 
 
+Pillow
+
+Pilkit
+
+django-imagekit
+
+
+
+
+
+## Image Resizing
+
+- Python & Django 이미지 관련 라이브러리
+
+  ```bash
+  # 설치 순서 주의! (의존성 있음)
+  
+  $ pip install pillow
+  $ pip install piplkit
+  $ pip install django-imagekit
+  ```
+
+  + ```pillow``` : ```PIL(Python Image Library)``` 프로젝트에서 fork되어서 나온 라이브러리. Python3를 지원하지 않기 때문에 Pillow를 많이 씀
+
+  + ```pilkit``` : Pillow를 쉽게 쓸 수 있도록 도와주는 라이브러리. 다양한 Processors 지원
+
+    + Thumbnail
+
+    + Resize
+
+    + Crop
+
+      ...
+
+  + ```django-imagekit``` : 이미지 썸네일 Helper
+
+- INSTALLED APPS 등록
+
+  ```python
+  # settings.py
+  INSTALLED_APPS = [
+  	...
+  	'imagekit'
+  	...
+  ]
+  ```
+
+- 모델링
+
+
+
+-  Migration
+
+  ```bash
+  $ python manage.py makemigrations
+  $ python manage.py migrate
+  ```
+
+  + ProcessedImageField의 인자로 들어가는 옵션들은 수정을 하더라도 다시 migration 하지 않아도 바로바로 적용이 된다.

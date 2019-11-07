@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1 class='text-center'>Create</h1>
+<h1 class='text-center'></h1>
+
+<!-- action 갑이 공백일 경우, 현재 위치하고 있는 주소로 요청을 보낸다.
+폼을 던져주는 경로, DB에 저장하는 경로가 동일하다면 공백으로 처리해도 상관없다.-->
+<form action="" method='POST'>
+{% csrf_token %}
+{{ form.as_p }} <!-- p 태그로 감싸라. as_table 하면 테이블로 감싸라 가능 -->
+<input type="submit">
+</form>
+<hr>
+<a href="{% url 'articles:index' %}">[BACK]</a>
+{% endblock body %}

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Article
+from .models import Article, Comment
 
 # class ArticleForm(forms.Form):
 #   title = forms.CharField(
@@ -55,3 +55,20 @@ class ArticleForm(forms.ModelForm) :
   class Meta:
     model = Article
     fields = ('title', 'content',)
+
+class CommentForm(forms.ModelForm):
+  content = forms.CharField(
+    label='댓글',
+    widget=forms.Textarea(
+      attrs={
+        'class':'content',
+        'placeholder':'댓글 입력해라...',
+        'rows':1,
+        
+      }
+    )
+  )
+
+  class Meta:
+    model = Comment
+    fields = ('content',)

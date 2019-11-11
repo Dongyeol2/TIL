@@ -1,4 +1,6 @@
 {% load bootstrap4 %}
+{% load gravatar %}
+
 <!DOCTYPE html>
 <html lang="en">
 {% load static %}
@@ -15,8 +17,18 @@
 <body>
   <div class="container">
     {% if user.is_authenticated %}
-      <h2>어서오세요, {{ user.username }}</h2>
-      <a href="{% url 'accounts:logout' %}">로그아웃</a>
+
+      <h2>
+        <img src = "https://s.gravatar.com/avatar/{{ user.email|makemd5 }}?s=80&d=mp" alt ="">
+        어서오세요, {{ user.username }}
+      </h2>
+      <a href="{% url 'accounts:logout' %}" class="btn btn-warning text-light">로그아웃</a>
+      <a href="{% url 'accounts:update' %}" class="btn btn-warning text-light">정보수정</a>
+      <a href="{% url 'accounts:change_password' %}" class="btn btn-warning text-light">비밀번호 변경</a>
+      <form action="{% url 'accounts:delete' %}" method="POST" style="display: inline;">
+        {% csrf_token %}
+        <input type="submit" value="회원탈퇴" class="btn btn-danger">
+      </form>
     {% else %}
       <a href="{% url 'accounts:login'%}">로그인</a>
       <a href="{% url 'accounts:signup'%}">회원가입</a>

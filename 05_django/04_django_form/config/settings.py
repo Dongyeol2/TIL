@@ -122,6 +122,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# login_required 요청 경로 커스터마이징
+# - 기본값은 '/accounts/login/'
+# LOGIN_URL = '/members/login/'
+
 # 정적 파일이 위치한 경로
 # 앞으로 static 파일을 찾을 때 아래 설정한 경로에 찾아가서 탐색한다.
 # 개발 단계에서 사용 -> 실제 프로덕션 배포단계에서는 다른 방식 사용

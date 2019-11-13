@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect, get_object_or_404
 from IPython import embed
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import get_user_model
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
@@ -83,4 +83,5 @@ def profile(request, username):
   person = get_object_or_404(get_user_model(), username=username)
   context = {'person':person,}
   return render(request, 'accounts/profile.html', context)
+
 

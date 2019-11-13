@@ -1,4 +1,5 @@
 import hashlib
+from itertools import chain
 from IPython import embed
 from django.views.decorators.http import require_POST
 from django.contrib.auth import get_user_model
@@ -157,3 +158,28 @@ def follow(request, article_pk, user_pk):
       person.followers.add(user)
     # 게시글 상세정보로 redirect
   return redirect('articles:detail', article_pk)
+
+# 내가 팔로우 하는 사람의 글 + 내가 작성한 글
+def list(request):
+  # 내가 팔로우하고 있는 사람들
+  followings = request.user.followers.all()
+  # 내가 팔로우하고 있는 사람들 + 나 -> 합치기
+  followings = chain(followings, [request.user])
+  # 위 명단 사람들 게시글 가져오기
+  articles = Article.objects.filter(user__in=followings).order_by('-pk').all()
+  comment_form = CommentForm()
+  context = {
+    'articles':articles,
+    'comment_form':comment_form,
+  }
+  return render(request, 'articles/article_list.html', context)
+
+# 모든 사람 글
+def explore(request):
+  articles = Article.objects.all()
+  comment_form = CommentForm()
+  context = {
+    'articles':articles,
+    'comment_form':comment_form,
+  }
+  return render(request, 'articles/article_list.html', context)

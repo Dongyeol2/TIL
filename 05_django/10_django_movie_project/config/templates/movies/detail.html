@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
 {% block body %}
 <nav class="navbar navbar-light bg-light">
   <span class="navbar-brand mb-0 h1">영화 상세 정보</span>
@@ -59,38 +61,46 @@
       {{movie.description}}
     </div>
   </div>
-  <input type="button" class="btn btn-primary" value="수정" onclick="location.href='{% url 'movies:update' movie.pk %}'">&nbsp;
+
   <input type="button" class="btn btn-primary" value="목록" onclick="location.href='{% url 'movies:index' %}'">
-  <!-- <input type="button" class="btn btn-danger" value="삭제" onclick="location.href='{% url 'movies:delete' movie.pk %}'"> -->
-  <form action="{% url 'movies:delete' movie.pk %}" method="POST" style="display: inline;" onclick="return confirm() 진짜 삭제?">
+  {% if request.user == movies.user %}
+  <form action="{% url 'movies:delete' movies.pk %}" method="POST">
     {% csrf_token %}
     <input type="submit" class="btn btn-danger" value="삭제"/>
   </form>
+  <input type="button" class="btn btn-primary" value="수정" onclick="location.href='{% url 'movies:update' movie.pk %}'">&nbsp;
+{% endif %}
+
+
 </form>
 <hr>
 <!-- 댓글 작성 Form -->
-<form action="{% url 'movies:comments_create' movie.pk %}" method="POST" style="display: inline" >
-  <!-- <div class="col-sm-10">
-    {{comment.content}}
-  </div> -->
+{% if user.is_authenticated %}
+<form action="{% url 'movies:comment_create' article.pk %}" method="POST" style="display:inline;"> 
   {% csrf_token %}
-  <input type = "text" name ="content">
-  
-  <!-- <textarea id="content" name="content" class="form-control" cols="20"></textarea> -->
-  <input id="comment" type="submit" name="comment" class="form-control" value="댓글 작성">
+  {{ comment_form }}
+  {% buttons submit='댓글 작성'%}
+  {% endbuttons %}
 </form>
+{% else %}
+<a href="{% url 'accounts:login' %}">[댓글 작성하려면 로그인 해주세요.]</a>
+{% endif %}
+
 <hr>
 {{ comments|length }}개의 댓글이 있습니다.
+<!--
 {{ movie.comment_set.all|length }}
-{{ comments.count }} <!-- 잘 안씀 db 쿼리 한번 더 불러옴 -->
+{{ comments.count }} --> <!-- 잘 안씀 db 쿼리 한번 더 불러옴 -->
 
 {% for comment in comments %}
   <li>
     {{comment.content}}
-    <form action="{% url 'movies:comments_delete' movie.pk comment.pk %}" method="POST">
-      {% csrf_token %}
-      <input id="comment_del" type="submit" name="comment_del" class="form-control" value="삭제">
-    </from>
+    {% if comment.user == request.user %}
+      <form action="{% url 'movies:comments_delete' movie.pk comment.pk %}" method="POST">
+        {% csrf_token %}
+        <input id="comment_del" type="submit" name="comment_del" class="form-control" value="삭제">
+      </from>
+    {% endif %}
   </li>
 {% empty %}
   <p>댓글이 없는데요..ㅠㅠㅜ</p>

@@ -1,5 +1,13 @@
 {% extends 'base.html' %}
+{% load bootstrap4 %}
+
 {% block body %}
+{% if request.resolver_match.url_name == 'create' %}
+  <h1>CREATE</h1>
+{% else %}
+  <h1>UPDATE<h1>
+{% endif %}
+<hr>
 
 <div class="card text-center">
   <div class="card-header">
@@ -67,6 +75,15 @@
   </form>
    <!--card body end-->
   </div>
+</div>
+
+<hr>
+<div class="container">
+  {% if request.resolver_match.url_name == 'create' %}
+    <a href="{% url 'articles:index'  %}">[BACK]</a>
+  {% else %}
+    <a href="{% url 'articles:detail' article.pk %}">[BACK]</a>
+  {% endif %}
 </div>
 
 

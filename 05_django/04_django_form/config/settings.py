@@ -138,3 +138,6 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 # 실제로 파일이 업로드된 다음에 어디로 배치될 것인지 경로를 설정
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# 기본값: auth.User
+AUTH_USER_MODEL = 'accounts.User'

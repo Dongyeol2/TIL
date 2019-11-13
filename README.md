@@ -27,3 +27,12 @@
     - Static files
     - Image Upload / Load
 13. [Django Form](./12.hphk_django_form.md)
+    - Django Form
+    - Django Model Form
+    - Authentication
+    - Model Relationships
+
+14. [Django 부가 기능](./13.hphk_django_like_profile_follow.md)
+    - LIKE
+    - PROFILE
+    - FOLLOW

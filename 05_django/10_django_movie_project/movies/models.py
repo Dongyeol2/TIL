@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 # Create your models here.
 class Movie(models.Model):
@@ -11,6 +12,7 @@ class Movie(models.Model):
     score = models.FloatField()
     poster_url = models.CharField(max_length=300)
     description = models.TextField()
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     #객체 표시 형식 수정
     def __str__(self):
@@ -20,6 +22,7 @@ class Comment(models.Model) :
     # related_name : 부모 테이블에서 역으로 참조할 때 기본적으로 모델이름_set 형식으로 불러온다. 
     # related_name이라는 값을 설정해서 _set 명령어를 임의로 변경할 수 있다.
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     content= models.CharField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

@@ -1,103 +1,107 @@
-from django.shortcuts import render,redirect
-from .models import Movie, Comment
 import csv
+import hashlib
+from IPython import embed
+from django.views.decorators.http import require_POST
+from django.contrib.auth.decorators import login_required
 from datetime import datetime
+from django.shortcuts import render,redirect, get_object_or_404
+from .models import Movie, Comment
+from .forms import MovieForm, CommentForm
 
 # Create your views here.
 def index(request):
     movies = Movie.objects.all()[::-1]
-    context ={
-        'movies':movies
-    }
-    print(movies)
+    context ={'movies':movies,}
     return render(request,'movies/index.html',context)
 
-# def new(request):
-#     return render(request,'movies/new.html')
-
-
+@login_required
 def create(request):
     # POST 요청일 경우 -> 게시글 생성 로직 수행
     if request.method == 'POST':
-        title = request.POST.get('title')
-        title_en = request.POST.get('title_en')
-        audience = request.POST.get('audience')
-        open_date = request.POST.get('open_date')
-        genre = request.POST.get('genre')
-        watch_grade = request.POST.get('watch_grade')
-        score = request.POST.get('score')
-        poster_url = request.POST.get('poster_url')
-        description = request.POST.get('description')
-
-        movie = Movie(title=title,title_en=title_en,audience=audience,open_date=open_date,genre=genre,watch_grade=watch_grade,score=score,poster_url=poster_url,description=description)
-        movie.save()
-        return redirect('movies:index')
+        form = MovieForm(request.POST)
+        if form.is_valid():
+            
+            movie = form.save(commit = False)
+            movie.user = request.user
+            movie = form.save()
+        return redirect('movies:detail', movie.pk)
         
     # GET 요청일 경우 -> 사용자에게 폼 보여주기
     else:
-        return render(request,'movies/create.html')
-
+        form = MovieForm()
+    context = {'form':form}
+    return render(request, 'movies/form.html', context)
     
-
-# def edit(request,movie_pk):
-#     movie = Movie.objects.get(pk=movie_pk)
-#     context = {'movie': movie}
-#     return render(request,'movies/edit.html',context)
-
-def update(request,movie_pk):
-    movie = Movie.objects.get(pk=movie_pk) # 중복되니깐 밖으로 뺌
-
-    # POST 요청 -> DB에 수정사항 반영
-    if request.method == 'POST':
-        movie.title = request.POST.get('title')
-        movie.title_en = request.POST.get('title_en')
-        movie.audience = request.POST.get('audience')
-        movie.open_date = request.POST.get('open_date')
-        movie.genre = request.POST.get('genre')
-        movie.watch_grade = request.POST.get('watch_grade')
-        movie.score = request.POST.get('score')
-        movie.poster_url = request.POST.get('poster_url')
-        movie.description = request.POST.get('description')
-        movie.save()
-        return redirect('movies:detail',movie_pk)
-
-    # GET 요청 -> 사용자에게 수정 Form 전달
-    else:
-        context = {'movie': movie}
-        return render(request,'movies/update.html',context)
-
 def detail(request,movie_pk):
-    movie = Movie.objects.get(pk=movie_pk)
+    movie = get_object_or_404(Movie, pk=movie_pk)
+    comment_form = CommentForm()
     comments = movie.comment_set.all()
     context = {
         'movie':movie,
+        'comment_form':comment_form,
         'comments':comments,
     }
     return render(request,'movies/detail.html',context)
-    
-def delete(request,movie_pk):
-    movie = Movie.objects.get(pk=movie_pk)
-    movie.delete()
 
+@login_required
+def update(request,movie_pk):
+    movie = get_object_or_404(Movie, pk=movie_pk)
+
+    if request.user == movie.user:
+        if request.method == 'POST':
+            form = MovieForm(request.POST, instance=movie)
+            if form.is_valid():
+                movie = form.save()
+            return redirect('movies:detail', movie.pk)
+        else :
+            form = MovieForm(instance=movie)
+    else:
+        return redirect('movies:index')
+
+    # context로 전달되는 2가지 form 형식
+    # 1. GET -> 초기값을 폼에 넣어서 사용자에게 던져줌
+    # 2. POST -> is_valid로 False가 리턴됐을 때, 오류 메시지 포함해서 사용자에게 던져줌
+    context = {
+        'form':form,
+        'article':article,
+    }
+    return render(request, 'articles/form.html', context)
+
+@require_POST
+def delete(request,movie_pk):
+    # 지금 사용자가 로그인 되어 있는가?
+    if request.user.is_authenticated:
+        # 삭제할 게시글 가져옴  
+        movie = get_object_or_404(Movie, pk=movie_pk)
+        # 지금 로그인한 사용자와 게시글 작성자 비교
+        if request.user == movie.user:
+            movie.delete()
+        else:
+            return redirect('movies:detail', movie.pk)
     return redirect('movies:index')
 
 # 댓글 생성 뷰 함수
+@require_POST
 def comments_create(request, movie_pk):
-    movie = Movie.objects.get(pk=movie_pk)
-    if request.method == 'POST':
-        content = request.POST.get('content')
-        comment = Comment(movie=movie, content=content)
-        comment.save()
-        return redirect('movies:detail', movie_pk)
-
-    else:
+    #movie = Movie.objects.get(pk=movie_pk)
+    if request.user.is_authenticated:
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.user = request.user
+            comment.movie_id = movie_pk
+            comment.save()
         return redirect('movies:detail', movie_pk)
 
 # 댓글 삭제 뷰 함수
+@require_POST
 def comments_delete(request, movie_pk, comment_pk):
-    if request.method == 'POST':
-        comment = Comment.object.get(pk=comment_pk)
-        comment.delete()
+    # 1. 로그인 여부 확인
+    if request.user.is_authenticated:
+        comment = get_object_or_404(Comment, pk=comment_pk)
+        # 2. 로그인한 사용자와 댓글 작성자가 같을 경우
+        if request.user == comment.user:
+            comment.delete()
     return redirect('movies:detail', movie_pk)
     
 # def csvfilesave(request):

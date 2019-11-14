@@ -23,3 +23,14 @@
 
 ### 1.5 READ
 
+## 2. Social Login
+
+인증, 계정, 등록 등을 다루는 여러가지 방법이 존재하는데,  우리는 `django-allauth`라는 **라이브러리를 사용해서 손쉽게 Social Login을 구현해 보자.**
+
+대부분의 소셜 로그인을 지원하고 회원가입 시킬 수 있다.
+
+### 2.1 사전 준비
+
+
+
+### 2.2 Kakao Developers OAuth 등록

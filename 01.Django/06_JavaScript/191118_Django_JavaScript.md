@@ -11,7 +11,7 @@
   - **LTS** Version(안정적)
   - **Windows Installer (.msi) 64bit**
 
-![1574044567790](assets/1574044567790.png)
+![1574044567790](01.Django/06_JavaScript/assets/1574044567790.png)
 
 - 설치 확인
 
@@ -20,7 +20,7 @@ $ node -v
 v12.13.0
 ```
 
-![1574048392577](assets/1574048392577.png)
+![1574048392577](01.Django/06_JavaScript/assets/1574048392577.png)
 
 ### 0.2 VScode Python & JavaScript 인덴팅 설정
 
@@ -43,7 +43,7 @@ settings.json
 
   - 단봉낙타표기법
 
-  ![1574044582085](assets/1574044582085.png)
+  ![1574044582085](01.Django/06_JavaScript/assets/1574044582085.png)
 
   - JavaScrip의 기본 표기법
 
@@ -91,7 +91,7 @@ const
   console.log(x)
   ```
 
-  ![1574046556306](assets/1574046556306.png)
+  ![1574046556306](01.Django/06_JavaScript/assets/1574046556306.png)
 
 - 블록 유효 범위 (`Block Scope`) 를 갖는 지역변수
 
@@ -109,7 +109,7 @@ const
   console.log(x)      // 1
   ```
 
-  ![1574046769863](assets/1574046769863.png)
+  ![1574046769863](01.Django/06_JavaScript/assets/1574046769863.png)
 
 ### 1.2 const (상수)
 
@@ -134,7 +134,7 @@ const
   console.log('My Favorite number is ....' + MY_FAV)
   ```
 
-  ![1574046640546](assets/1574046640546.png)
+  ![1574046640546](01.Django/06_JavaScript/assets/1574046640546.png)
 
 - 초기값을 생략하면 **ERROR** 발생
 
@@ -172,7 +172,7 @@ if ( userName === '도현'){
 document.write(message)
 ```
 
-![1574052895091](assets/1574052895091.png)
+![1574052895091](01.Django/06_JavaScript/assets/1574052895091.png)
 
 ![1574052919084](assets/1574052919084.png)
 
@@ -192,7 +192,7 @@ while (i < 6){
 }
 ```
 
-![1574052971234](assets/1574052971234.png)
+![1574052971234](01.Django/06_JavaScript/assets/1574052971234.png)
 
 ### 3.2 for
 
@@ -207,7 +207,7 @@ for (let j = 0; j < 6; j++) {
 }
 ````
 
-![1574053031262](assets/1574053031262.png)
+![1574053031262](01.Django/06_JavaScript/assets/1574053031262.png)
 
 ### 3.3 Python for in 문법처럼 비슷하게 사용
 
@@ -227,7 +227,7 @@ for (const number of [1, 2, 3, 4, 5]) {
 }
 ```
 
-![1574053155176](assets/1574053155176.png)
+![1574053155176](01.Django/06_JavaScript/assets/1574053155176.png)
 
 
 
@@ -315,7 +315,7 @@ square = num => num ** 2
 // console.log(square(2))
 ```
 
-![1574053560476](assets/1574053560476.png)
+![1574053560476](01.Django/06_JavaScript/assets/1574053560476.png)
 
 
 

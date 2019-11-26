@@ -18,7 +18,7 @@
 
 - [Python](./01.Django/mdfile/3.hphk_python.md)
 
-- [Telegram Chatbot 제작 및 배포](https://github.com/kyunghee2/telegram_bot)
+- [Telegram Chatbot 제작 및 배포](https://github.com/dongyeol2/telegram_bot)
 
 - [파이썬기반 Django 웹개발 1](./01.Django/mdfile/5.hphk_django.md)
 

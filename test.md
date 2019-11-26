@@ -2,7 +2,7 @@
 
 ## 1. Hashtag
 
-### 1.1 Model
+### 1.1 Modeld
 
 - `unique=True`
   + True인 경우, 필드는 테이블을 전체에서 고유한 값이어야 한다.

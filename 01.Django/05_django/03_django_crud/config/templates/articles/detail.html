@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<h1 class="text-center">DETAIL </h1>
+<!-- 
+  article.image.url -> 파일주소
+  article.image -> 파일 이름(sample.png)
+-->
+
+<!--
+  1. 샘플 이미지를 넣어두고, 이미지 없는 게시글은 샘플 이미지가 나오도록 한다.
+  2. 이미지 있는 경우에만 이미지를 보여준다.
+-->
+{% if article.image %}
+  <img src ="{{ article.image.url }}" alt = "{{ article.image }}">
+{% else %}
+  <p>사진이 없어요...</p>
+  <img src ="{% static 'articles/images/no_image.png'%}" alt="no_images">
+{% endif %}
+
+
+<p>글 번호:{{article.pk}}</p>
+<p>글 제목:{{article.title}}</p>
+<p>글 내용:{{article.content}}</p>
+<p>생성시각:{{article.created_at}}</p>
+<p>수정시각:{{article.updated_at}}</p>
+<hr>
+<a href="{% url 'articles:index' %}">[BACK]</a>
+<a href="{% url 'articles:update' article.pk %}">[EDIT]</a>
+<a href="{% url 'articles:delete' article.pk %}">[DELETE]</a>
+{% comment %} <a href="/articles/{{ article.pk }}/edit/">[EDIT]</a>
+<a href="/articles/{{ article.pk }}/delete/">[DELETE]</a> {% endcomment %}
+<!-- 댓글 작성 Form -->
+<form action="{% url 'articles:comment_create' article.pk %}" method="POST">
+  {% csrf_token %}
+  <input type = "text" name ="content">
+  <input id="comment" type="submit" name="comment" class="form-control" value="댓글 작성">
+</form>
+<hr>
+{{ comments|length }}개의 댓글이 있습니다.
+{% for comment in comments %}
+  <li>
+    {{comment.content}}
+    <form action="{% url 'articles:comment_delete' article.pk comment.pk %}" method="POST">
+      {% csrf_token %}
+      <input id="comment_del" type="submit" name="comment_del" class="form-control" value="삭제">
+    </from>
+  </li>
+{% empty %}
+  <p>댓글이 없는데요..ㅠㅠㅜ</p>
+{% endfor %}
+
+{% endblock body %}

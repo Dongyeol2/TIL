@@ -1,0 +1,15 @@
+div {
+  width: 100px;
+  height: 100px;
+  background-color: crimson;
+  text-align: center;
+  border:1px solid black;
+  
+  opacity:0.5;/*투명도*/
+}
+.none {
+  display:none;
+}
+.hidden {
+  display:hidden;
+}

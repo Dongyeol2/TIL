@@ -1,0 +1,104 @@
+
+### faker.providers.address
+
+	fake.address()                                                                                      # 서울특별시 은평구 도산대길
+	fake.address_detail()                                                                               # 예준김김아파트 443동 038호
+	fake.borough()                                                                                      # 광진구
+	fake.bothify(text="## ??", letters="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")          # 45 eF
+	fake.building_dong()                                                                                # 바
+	fake.building_name()                                                                                # 성훈박김타워
+	fake.building_number()                                                                              # 84
+	fake.building_suffix()                                                                              # 빌라
+	fake.city()                                                                                         # 부천시 원미구
+	fake.city_suffix()                                                                                  # 시
+	fake.country()                                                                                      # 바레인
+	fake.country_code(representation="alpha-2")                                                         # TR
+	fake.hexify(text="^^^^", upper=False)                                                               # 3647
+	fake.land_address()                                                                                 # 대구광역시 송파구 현준엄리 523-1
+	fake.land_number()                                                                                  # 374-2
+	fake.language_code()                                                                                # ht
+	fake.lexify(text="????", letters="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")            # MqDV
+	fake.locale()                                                                                       # bo_CN
+	fake.metropolitan_city()                                                                            # 부산광역시
+	fake.numerify(text="###")                                                                           # 993
+	fake.old_postal_code()                                                                              # 247-005
+	fake.postal_code()                                                                                  # 45054
+	fake.postcode()                                                                                     # 26914
+	fake.province()                                                                                     # 전라남도
+	fake.random_choices(elements=('a', 'b', 'c'), length=None)                                          # ['a', 'a']
+	fake.random_digit()                                                                                 # 9
+	fake.random_digit_not_null()                                                                        # 3
+	fake.random_digit_not_null_or_empty()                                                               # 1
+	fake.random_digit_or_empty()                                                                        # 0
+	fake.random_element(elements=('a', 'b', 'c'))                                                       # b
+	fake.random_elements(elements=('a', 'b', 'c'), length=None, unique=False)                           # ['c', 'b']
+	fake.random_int(min=0, max=9999, step=1)                                                            # 4756
+	fake.random_letter()                                                                                # K
+	fake.random_letters(length=16)                                                                      # ['f', 'Z', 'w', 'k', 'd', 'c', 'i', 'J', 'h', 'c',
+	                                                                                                       'z', 'm', 'Z', 'g', 'B', 'O']
+	fake.random_lowercase_letter()                                                                      # n
+	fake.random_number(digits=None, fix_len=False)                                                      # 489
+	fake.random_sample(elements=('a', 'b', 'c'), length=None)                                           # ['a']
+	fake.random_uppercase_letter()                                                                      # O
+	fake.randomize_nb_elements(number=10, le=False, ge=False, min=None, max=None)                       # 11
+	fake.road()                                                                                         # 테헤란길
+	fake.road_address()                                                                                 # 인천광역시 중랑구 압구정길 (은경이이동)
+	fake.road_name()                                                                                    # 백제고분
+	fake.road_number()                                                                                  # 1
+	fake.road_suffix()                                                                                  # 가
+	fake.street_address()                                                                               # 제주특별자치도 시흥시 서초대16로
+	fake.street_name()                                                                                  # 백제고분
+	fake.street_suffix()                                                                                # 가
+	fake.town()                                                                                         # 아름안리
+	fake.town_suffix()                                                                                  # 마을
+
+### faker.providers.automotive
+
+	fake.license_plate()                                                                                # 4-56714R
+
+### faker.providers.bank
+
+	fake.bank_country()                                                                                 # GB
+	fake.bban()                                                                                         # ZRBX2402797663032
+	fake.iban()                                                                                         # GB80AWDV6380329587870
+
+### faker.providers.barcode
+
+	fake.ean(length=13)                                                                                 # 1091784920515
+	fake.ean13()                                                                                        # 8045118763463
+	fake.ean8()                                                                                         # 37611194
+
+### faker.providers.color
+
+	fake.color_name()                                                                                   # PowderBlue
+	fake.hex_color()                                                                                    # #5daa79
+	fake.rgb_color()                                                                                    # 222,212,227
+	fake.rgb_css_color()                                                                                # rgb(34,100,154)
+	fake.safe_color_name()                                                                              # aqua
+	fake.safe_hex_color()                                                                               # #ff5500
+
+### faker.providers.company
+
+	fake.bs()                                                                                           # 선구적인 투명 플랫폼
+	fake.catch_phrase()                                                                                 # 총 주파수 탐지 가능 배열
+	fake.company()                                                                                      # 주식회사 정
+	fake.company_suffix()                                                                               # 유한회사
+
+### faker.providers.credit_card
+
+	fake.credit_card_expire(start="now", end="+10y", date_format="%m/%y")                               # 09/22
+	fake.credit_card_full(card_type=None)                                                               # Maestro
+	                                                                                                      정남 정
+	                                                                                                      630497818363 10/24
+	                                                                                                      CVV: 532
+	fake.credit_card_number(card_type=None)                                                             # 3509587948799768
+	fake.credit_card_provider(card_type=None)                                                           # Mastercard
+	fake.credit_card_security_code(card_type=None)                                                      # 552
+
+### faker.providers.currency
+
+	fake.cryptocurrency()                                                                               # ('PPC', 'Peercoin')
+	fake.cryptocurrency_code()                                                                          # STC
+	fake.cryptocurrency_name()                                                                          # NEO
+	fake.currency()                                                                                     # ('NAD', 'Namibian dollar')
+	fake.currency_code()                                                                                # GBP

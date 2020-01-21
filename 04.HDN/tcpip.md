@@ -73,3 +73,99 @@ SYN : `Synchronize Sequence Number`, ACK : `Acknowledment`
 - 궁금증 1. Server에서 FIN을 전송하기 전에 전송한 패킷이 Routing 지연이나 패킷 유실로 인한 재전송 등으로 인해 FIN 패킷보다 늦게 도착하는 상황이 발생한다면?
 
   -> Client에서 세션을 종료시킨 후 뒤늦게 도착하는 패킷이 있다면 이 패킷은 Drop되고 데이터는 유실될것이다. 이러한 상황에 대비하여 Client는 Server로부터 FIN을 수신하더라도 일정시간(default : 240sec)동안 세션을 남겨놓고 잉여 패킷을 기다리는 과정을 거치데 되는데 이 과정을 `TIME_WAIT`이라고 한다.
+
+
+
+## TCP vs UDP [동작원리/헤더/차이점]
+
+- TCP/UDP
+
+  전송계층에서 사용하는 프로토콜로써, 목적지 장비까지 패킷을 상위의 특정 응용 프로토콜에게 전달하는 것에 목적이 있다. 전송방식으로는 TCP, UDP가 있다.
+
+  **TCP와 UDP의 가장 큰 차이는 세그먼트(segment) 전달의 신뢰성에 있다.**
+
+- TCP (Transmission Control Protocol)
+
+  **TCP**는 수신한 세그먼트에 에러가 발생하면 재전송을 요구하여 에러를 복구한다. 이 처럼 에러복구 기능이 있는 프로토콜을 *'신뢰성 있는 프로토콜'*이라고 한다.
+
+  **신뢰성 있는 통신을 하려면 에러확인 및 복구를 위한 정보를 확인해야 하므로 처리속도가 느리다.**
+
+- UDP (User Datagram Protocol)
+
+  **UDP**는 에러가 발생한 세그먼트는 폐기시킨다. 이것으로 끝이다. 이처럼 에러복구 기능이 없는 프로토콜을 *'신뢰성 없는 프로토콜'*이라고 한다.
+
+  **신뢰성 없는 통신은 에러 복구 기능이 불필요하므로, 처리속도가 빠르다.**
+
+- TCP / UDP 차이점
+
+  ![TCP/UDP](./imgs/tcpudp.png)
+
+- TCP / UDP 헤더
+
+  [TCP 헤더]
+
+  ![TCP](./imgs/tcp.png)
+
+  + Source Port(16 bit) : 출발지 포트번호를 표시한다. 응용 서비스에 따라 포트번호가 정해져 있는 것도 있지만, 대부분의 경우 처음 세그먼트를 전송하는 측에서 임의의 번호를 사용한다.
+  + Destination Port(16 bit) : 목적지 포트번호를 표시한다. 응용 서비스에 따라 포트번호가 정해져 있다. (ex, telnet 23)
+  + Sequence Number (32 bit) : TCP 순서번호를 표시한다. 통신을 시작하는 양단의 장비들의 별개로 임의의 번호부터 시작한다.
+  + Acknowledgment Number (32 bit) : 상대방이 보낸 세그먼트를 잘 받았다는 것을 알려주기 위한 번호이다.
+  + Offset (4 bit) : TCP 헤더 길이를 4바이트 단위로 표시한다. TCP 헤더는 최소 20, 최대 60 byte이다.
+  + Reserved (4 bit) : 사용하지 않는 필드이며 모두 0으로 표시한다.
+  + Flags ( 8 bit) : 제어비트(Control bits)라고도 하며, 세그먼트의 종류를 표시하는 필드이다.
+  + Window size ( 16 bit) : 상대방의 확인 없이 전송할 수 있는 최대 바이트 수를 표시한다.
+  + Checksum (16 bit) : 헤더와 데이터의 에러를 확인하기 위한 필드이다.
+  + Urgent Pointer (16 bit) : 현재의 순서 번호부터 긴급포인트에 표시된 바이트까지가 긴급한 데이터임을 표시한다.
+  + Option (0~40 byte) : 최대 세그먼트 사이즈 지정 등 추가적인 옵션이 있을 경우 표시한다.
+
+  
+
+  [UDP 헤더]
+
+  ![UDP](./imgs/udp.png)
+
+  + Source Port (16 bit) : 출발지 포트번호를 표시한다. 응용 서비스에 따라 포트번호가 정해져 있는 것도 있지만, 대부분의 경우 처음 세그먼트를 전송하는 측에서 임의의 번호를 사용한다.
+  + Destination Port (16 bit) : 목적지 포트번호를 표시한다. 응용서비스에 따라 포트번호가 정해져 있다. (ex, DNS 53)
+  + Length( 16 bit) : 헤더와 데이터를 포함한 전체 길이를 바이트 단위로 표시한다.
+  + Checksum (16 bit) : 헤더와 데이터의 에러를 확인하기 위한 필드이다. UDP 헤더는 에러복구를 위한 필드가 불필요하기 때문에 TCP 헤더에 비해 간단하다.
+
+  [IP 헤더]
+
+  ![IP](./IMGS/IP.PNG)
+
+  - Version 필드 (4 bit) : TCP/IP 제품은 IP v4를 사용한다.
+
+  - Header Length 필드 (4 bit) : IP 헤드의 길이를 32비트 단위로 나타낸다. 대부분의 IP 헤더의 길이는 20바이트이다. 필드 값은 거의 항상 5다. (5*32 = 160bit or 20Byte)
+
+  - Type-of-Service Flags : 서비스의 우선 순위를 제공한다.
+
+  - Total Packet Length 필드 (16bit) : 전체 IP 패킷의 길이를 바이트 단위로 나타낸다.
+
+  - Fragment identifier 필드 (16bit) : 분열이 발생한 경우, 조각을 다시 결합하여 원래의 데이터를 식별하기 위해서 사용한다.
+
+  - Fragmentation Flags 필드 (3bit) 
+
+    /- 처음 1bit는 항상 0으로 설정, 나머지 2비트의 용도는 다음과 같다.
+
+    /- May Fragment : IP 라우터에 의해 분열되는 여부를 나타낸다. 플래그 0 - 분열 가능 1 - 분열 방지
+
+    /- More Fragments : 원래 데이터의 분열된 조각이 더 있는지 여부 판단
+
+    ​								플래그 0 - 마지막 조각, 기본값 1 - 조각이 더 있음
+
+  - Fragmentation Offset 필드 (13bit) : 8바이트 오프셋으로 조각에 저장된 원래 데이터의 바이트 범위를 나타낸다.
+
+  - Time-to-live 필드 (8bit) : 상위 계층 프로토콜 1 - ICMP, 2 - IGMP, 6 - TCP, 17 - UDP
+
+  - Header Checksum 필드 (16 bit) : IP 헤더의 체크섬을 저장, 라우터를 지나갈때 마다 재 계산을 하기 때문에 속도가 떨어진다.
+
+  - Source IP Address 필드 (32 bit) : 출발지 IP 주소
+
+  - Destination IP Address 필드 (32 bit) : 목적지 IP 주소
+
+  - Options(선택적) 필드(가변적) : Type-of-Service 플래그 처럼 특정한 처리 옵션을 추가로 정의할 수 있다.
+
+    
+
+    
+

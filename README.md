@@ -105,12 +105,21 @@
 
 # PART 4. TIL
 
-### ![light](/image/light.jpeg) [L2/L3 스위치의 기본 개념](./04.HDN/l2l3.md)
+### ![light](./image/light.jpeg) [L2/L3 스위치의 기본 개념](./04.HDN/l2l3.md)
 
 <br>
 
-### ![light](/image/light.jpeg) [OSI 7 계층이란](./04.HDN/osi7.md)
+### ![light](./image/light.jpeg) [OSI 7 계층이란](./04.HDN/osi7.md)
 
 <br>
 
-### ![light](/image/light.jpeg) [TCP/IP란](./04.HDN/tcpip.md)
+### ![light](./image/light.jpeg) [TCP/IP란](./04.HDN/tcpip.md)
+
+<br>
+
+### ![light](./image/light.jpeg)[LAN 통신이란](./04.HDN/lan.md)
+
+<br>
+
+### ![light](./image/light.jpeg)[Subnet vs Supernet](./04.HDN/subnetsupernet)
+

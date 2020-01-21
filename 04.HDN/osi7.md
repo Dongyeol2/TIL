@@ -21,7 +21,7 @@ EX) PC방에서 롤 승급전을 하고있다. 그런데 승리를 눈앞에 두
 
 # 2 OSI 7계층 단계
 
-![osi7](/imgs/OSI7.PNG)
+![osi7](./imgs/OSI7.PNG)
 
 
 

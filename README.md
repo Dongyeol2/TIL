@@ -109,25 +109,25 @@
 
 <br>
 
-### ![light](./image/light.jpeg)[L2/L3 스위치의 기본 개념](./04.HDN/2. l2l3.md)
+### ![light](./image/light.jpeg)[L2/L3 스위치의 기본 개념](./04.HDN/2.l2l3.md)
 
 <br>
 
-### ![light](./image/light.jpeg)[TCP/IP란](./04.HDN/3. tcpip.md)
+### ![light](./image/light.jpeg)[TCP/IP란](./04.HDN/3.tcpip.md)
 
 <br>
 
-### ![light](./image/light.jpeg)[LAN 통신이란](./04.HDN/4. lan.md)
+### ![light](./image/light.jpeg)[LAN 통신이란](./04.HDN/4.lan.md)
 
 <br>
 
-### ![light](./image/light.jpeg) [서브넷 마스크와 슈퍼넷 마스크](./04.HDN/5. subnetsupernet.md)
+### ![light](./image/light.jpeg) [서브넷 마스크와 슈퍼넷 마스크](./04.HDN/5.subnetsupernet.md)
 
 <br>
 
-### ![light](./image/light.jpeg)[VLAN 이란](./04.HDN/6. vlan.md)
+### ![light](./image/light.jpeg)[VLAN 이란](./04.HDN/6.vlan.md)
 
 <br>
 
-### ![light](./image/light.jpeg)[라우팅 프로토콜 정리](./04.HDN/7. routingprotocol.md)
+### ![light](./image/light.jpeg)[라우팅 프로토콜 정리](./04.HDN/7.routingprotocol.md)
 

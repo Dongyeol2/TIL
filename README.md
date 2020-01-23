@@ -105,7 +105,7 @@
 
 # PART 4. TIL
 
-### ![light](./image/light.jpeg)[1. OSI 7계층](./04.HDN/1. osi7.md)
+### ![light](./image/light.jpeg)[1. OSI 7계층](./04.HDN/1.osi7.md)
 
 <br>
 

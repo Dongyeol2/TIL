@@ -4,9 +4,9 @@
 
 ---
 
-# PART 1. Django
+# :books: PART 1. Django
 
-### ![light](/image/light.jpeg)[개발 환경 세팅]
+### :bulb: [개발 환경 세팅]
 
 - [웹 기본 개념](./01.Django/mdfile/1.hphk_intro_html.md "웹 기본 개념")
 
@@ -20,19 +20,19 @@
 
   <br>
 
-### ![light](/image/light.jpeg)[Telegram Chatbot 제작 및 배포](./01.Django/mdfile/4.hphk_flask.md)
+### :bulb:[Telegram Chatbot 제작 및 배포](./01.Django/mdfile/4.hphk_flask.md)
 
 <br>
 
-### ![light](/image/light.jpeg)[파이썬기반 Django 웹개발 1](./01.Django/mdfile/5.hphk_django.md)
+### :bulb:[파이썬기반 Django 웹개발 1](./01.Django/mdfile/5.hphk_django.md)
 
 <br>
 
-### ![light](/image/light.jpeg)[파이썬기반 Django 웹개발 2](./01.Django/mdfile/5.hphk_django2.md)
+### :bulb:[파이썬기반 Django 웹개발 2](./01.Django/mdfile/5.hphk_django2.md)
 
 <br>
 
-### ![light](/image/light.jpeg)파이썬기반 Django Database 연동 (Sqlite3)
+### :bulb:파이썬기반 Django Database 연동 (Sqlite3)
 
 + [Django Model ORM](./01.Django/mdfile/6.hphk_django_db.md)
 + [Django CRUD](./01.Django/mdfile/7.hphk_django_db_crud.md)
@@ -41,14 +41,14 @@
 
 <br>
 
-### ![light](/image/light.jpeg)[Bootstrap & seeddata](./01.Django/mdfile/10.hphk_bootstrap_seeddata.md)
+### :bulb:[Bootstrap & seeddata](./01.Django/mdfile/10.hphk_bootstrap_seeddata.md)
 
 + Bootstrap
 + seeddata
 
 <br>
 
-### ![light](/image/light.jpeg)[RESTful API](./01.Django/mdfile/11.hphk_restful_api.md)
+### :bulb:[RESTful API](./01.Django/mdfile/11.hphk_restful_api.md)
 
 + RESTful API
 + ORM 1:N Relation
@@ -57,7 +57,7 @@
 
 <br>
 
-### ![light](/image/light.jpeg)[Django Form](./01.Django/mdfile/12.hphk_django_form.md)
+### :bulb:[Django Form](./01.Django/mdfile/12.hphk_django_form.md)
 
 + Django Form
 + Django Model Form
@@ -66,7 +66,7 @@
 
 <br>
 
-### ![light](/image/light.jpeg)[Django 부가 기능](./01.Django/mdfile/13.hphk_django_like_profile_follow.md)
+### :bulb:[Django 부가 기능](./01.Django/mdfile/13.hphk_django_like_profile_follow.md)
 
 + LIKE
 + PROFILE
@@ -74,60 +74,62 @@
 
 <br>
 
-### ![light](/image/light.jpeg)[Node js 기본 개념](./01.Django/mdfile/14.hphk_nodejs.md)
+### :bulb:[Node js 기본 개념](./01.Django/mdfile/14.hphk_nodejs.md)
 
 <br>
 
 ---
 
-# PART 2. SPRING
+# :books: PART 2. SPRING
 
-### ![light](/image/light.jpeg) [개발환경 셋팅](./02.spring/mdfile/01.spring_intro.md)
+### :bulb: [개발환경 셋팅](./02.spring/mdfile/01.spring_intro.md)
 
 - JDK VS JRE 
 - STS(Spring Tool Suite) 설치
 - Tomcat 설치
 - Spring Project 구동
 
-### ![light](/image/light.jpeg) [JAVA기반 Spring 웹 개발](./02.spring/mdfile/01.spring_intro.md)
+### :bulb: [JAVA기반 Spring 웹 개발](./02.spring/mdfile/01.spring_intro.md)
 
 ---
 
 <br>
 
-# PART 3. Algorithm
+# :books: PART 3. Algorithm
 
-### ![light](/image/light.jpeg) [알고리즘이란](./03.algorithm/mdfile/01_algorithm_intro.md)
+### :bulb: [알고리즘이란](./03.algorithm/mdfile/01_algorithm_intro.md)
 
 ---
 
 <br>
 
-# PART 4. TIL
+# :books: PART 4. TIL
 
-### ![light](./image/light.jpeg)[1. OSI 7계층](./04.HDN/1.osi7.md)
+### :zero::one: [OSI 7계층](./04.HDN/01.osi7.md)
 
-<br>
+### :zero::two:[L2 /L 3 스위치의 기본 개념](./04.HDN/02.l2l3.md)
 
-### ![light](./image/light.jpeg)[L2/L3 스위치의 기본 개념](./04.HDN/2.l2l3.md)
+### :zero::three:[TCP/IP 란](./04.HDN/03.tcpip.md)
 
-<br>
+### :zero::four:[LAN 통신 이란](./04.HDN/04.lan.md)
 
-### ![light](./image/light.jpeg)[TCP/IP란](./04.HDN/3.tcpip.md)
+### :zero::five: [서브넷 마스크 와  슈퍼넷 마스크](./04.HDN/05.subnetsupernet.md)
 
-<br>
+### :zero::six: ​[VLAN 이란](./04.HDN/06.vlan.md)
 
-### ![light](./image/light.jpeg)[LAN 통신이란](./04.HDN/4.lan.md)
+### :zero::seven: ​[라우팅 프로토콜 정리](./04.HDN/07.routingprotocol.md)
 
-<br>
+### :zero::eight: [DHCP 정리](./04.HDN/08.dhcp.md)
 
-### ![light](./image/light.jpeg) [서브넷 마스크와 슈퍼넷 마스크](./04.HDN/5.subnetsupernet.md)
+### :zero::nine:  [OSPF 정리](./04.hdn/09.OSPF.md) 
 
-<br>
+### :one::zero: [L3 Switch 정리](./04.HDN/10.l3switch.md)
 
-### ![light](./image/light.jpeg)[VLAN 이란](./04.HDN/6.vlan.md)
+### :one::one: [IP QoS 정리](./04.HDN/11.IPQoS.md)
 
-<br>
 
-### ![light](./image/light.jpeg)[라우팅 프로토콜 정리](./04.HDN/7.routingprotocol.md)
+
+
+
+
 

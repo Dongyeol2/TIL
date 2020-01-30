@@ -101,7 +101,7 @@
 
 ### :zero::eight: [DHCP 정리](./04.HDN/08.dhcp.md)
 
-### :zero::nine:  [OSPF 정리](./04.hdn/09.OSPF.md) 
+### :zero::nine:  [OSPF 정리](./04.HDN/09.OSPF.md) 
 
 ### :one::zero: [L3 Switch 정리](./04.HDN/10.l3switch.md)
 

@@ -113,7 +113,7 @@
 
 ### :one::four: [OSPF](./04.HDN/09.OSPF.md)
 
-### :one::five: [L3 R outing Protocol](./04.HDN/10.l3switch.md)
+### :one::five: [L3 Routing Protocol](./04.HDN/10.l3switch.md)
 
 ### :one::six: [VRRP](./04.HDN/15.vrrp.md)
 

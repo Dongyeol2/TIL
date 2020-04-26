@@ -79,6 +79,8 @@
 
 ### :bulb: [알고리즘이란](./03.algorithm/mdfile/01_algorithm_intro.md)
 
+### :bulb: [순열(Permutation)](./03.algorithm/mdfile/02_permutation.md)
+
 ---
 
 <br>

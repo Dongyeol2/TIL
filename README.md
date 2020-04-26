@@ -81,6 +81,8 @@
 
 ### :bulb: [순열(Permutation)](./03.algorithm/mdfile/02_permutation.md)
 
+### :bulb: [완전탐색](./03.algorithm/mdfile/03_complete_search.md)
+
 ---
 
 <br>

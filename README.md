@@ -133,3 +133,17 @@
 
 ### :zero::one: [파일입출력](./05.C/01.file_io.md)
 
+
+
+---
+
+<br>
+
+
+
+#  :books: [PART 6 .CCNA](./06.CCNA.md)
+
+
+
+
+

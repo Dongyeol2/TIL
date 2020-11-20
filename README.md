@@ -87,7 +87,7 @@
 
 <br>
 
-# :books: PART 4. TIL
+# :books: PART 4. Network
 
 ### :zero::one: [OSI 7계층](./04.HDN/01.osi7.md)
 

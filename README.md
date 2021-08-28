@@ -83,7 +83,7 @@
 
 ### :bulb: [완전탐색](./03.algorithm/mdfile/03_complete_search.md)​
 
-### :bulb: [2021 KAKAO BLIND RECURITMENT](./03.algorithm/mdfile/04.kakao_blind_recuruitment.md)
+### :bulb: [2021 KAKAO BLIND RECURITMENT](./03.algorithm/mdfile/04.2021_kakao_blind_recuruitment.md)
 
 ---
 

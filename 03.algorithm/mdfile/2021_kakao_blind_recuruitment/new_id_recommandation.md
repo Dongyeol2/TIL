@@ -281,6 +281,3 @@ str.append(string)
 
 string일 경우
 str.concat(string)
-
-
-

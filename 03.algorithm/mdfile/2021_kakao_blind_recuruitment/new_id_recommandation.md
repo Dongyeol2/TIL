@@ -115,6 +115,8 @@ new_id에 나타날 수 있는 특수문자는 `-_.~!@#$%^&*()=+[{]}:?,<>/` 로 
 6단계 `"abcdefghijklmn.p"` → `"abcdefghijklmn."` → `"abcdefghijklmn"`
 7단계 변화 없습니다.
 
+##### [문제 풀이]
+
 ```java
 import java.util.*;
 

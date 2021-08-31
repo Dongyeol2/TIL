@@ -101,3 +101,90 @@ search 대상을 찾았을 때는 그 대상의 위치를, 만약 찾지 못했�
 insertion point는 해당 리스트에 그 key가 존재했다면, 그 key가 삽입되었을 위치를 말한다.
 
 지정한 comparator를 사용해 list의 요소를 비교할 수 없을 때나, key를 비교할 수 없을 때 **ClassCastExciption**이 발생 할 수 있다.
+
+
+
+##### **문제 풀이**
+
+```java
+import java.util.*;
+
+class Solution {
+    Map<String, Integer> Wordmap = new HashMap<>();
+    List<List<Integer>> ScoreList = new ArrayList<>();
+
+    public int[] solution(String[] info, String[] query) {
+        //조합을 bitmap으로 구하기 위해 WordMap에 모든 원소값 indexing
+        Wordmap.put("-", 0);
+        Wordmap.put("cpp", 1);
+        Wordmap.put("java", 2);
+        Wordmap.put("python", 3);
+        Wordmap.put("backend", 1);
+        Wordmap.put("frontend", 2);
+        Wordmap.put("junior", 1);
+        Wordmap.put("senior", 2);
+        Wordmap.put("chicken", 1);
+        Wordmap.put("pizza", 2);
+        for (int i = 0; i < 4*3*3*3; ++i)
+            ScoreList.add(new ArrayList<>());
+        
+        for (String str : info) {
+            // info의 각 string을 공백을 기준으로 string 배열에 삽입
+            String[] word = str.split(" ");
+            // int 배열에 각 info들의 index 삽입
+            int[] arr = {Wordmap.get(word[0]) *3*3*3,
+                         Wordmap.get(word[1]) *3*3,
+                         Wordmap.get(word[2]) *3,
+                         Wordmap.get(word[3])};
+            // str[4]는 score 
+            int score = Integer.parseInt(word[4]);
+            
+            //1을 4번 shift(4가지 항목)하게 되면 10000(2진수) = 16
+            for(int i = 0; i < (1<<4); ++i) {
+                int idx = 0;
+                // '-'이 아닌 각 항목의 원소값 idx에 삽입
+                for(int j = 0; j < 4; ++j) {
+                    if((i & (1 << j)) != 0) {
+                        idx += arr[j];
+                    }
+                }
+                ScoreList.get(idx).add(score);
+            }
+        }
+        // scoreList 정렬 = BinarySearch하기 위해
+        for (int i =0; i < 4*3*3*3; ++i)
+            Collections.sort(ScoreList.get(i));
+        
+        int[] answer = new int[query.length];
+        for(int i = 0; i < query.length; ++i) {
+            String[] word = query[i].split(" ");
+            //query에서 검색을 위한 idx
+            int idx = Wordmap.get(word[0]) *3*3*3 +
+                Wordmap.get(word[2]) *3*3 +
+                Wordmap.get(word[4]) *3 +
+                Wordmap.get(word[6]);
+            int score = Integer.parseInt(word[7]);
+            int ret = Collections.binarySearch(ScoreList.get(idx), score);
+            
+            //BinarySearch를 통해 150을 찾을떄, 만약 150점을 갖는 수가 없으면 1을 더한 음수값이 반환되기 때문에 0보다 작을 경우 -(ret+1) 처리
+            if(ret < 0) {
+                ret = -(ret + 1);
+            } else {
+                //binarySearch를 통해서는 가장 작은 index가 무엇인지는 알 수 없음 우리가 필요한 것은 LOW BOUND index값이 필요함
+                for(int j = ret - 1; j >= 0; --j) {
+                    if(ScoreList.get(idx).get(j) == score) {
+                        ret = j;
+                    } else {
+                        break;
+                    }
+                }
+            }
+            // 결과는 해당 index의 전체 크기에서 low bound의 수를 빼야한다.(점수는 00점 이상이기 때문)
+            answer[i] = ScoreList.get(idx).size() - ret;
+        }
+        
+        return answer;
+    }
+}
+```
+

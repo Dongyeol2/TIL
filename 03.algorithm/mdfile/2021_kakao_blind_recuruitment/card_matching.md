@@ -101,7 +101,7 @@
 import java.util.*;
 
 class Solution {
-    //member field 이용.
+    // member field 이용.
     class Point {
         // 생성자 정의
         Point(int r, int c, int t) {
@@ -116,23 +116,23 @@ class Solution {
     static final int[][] D = {{-1,0},{1,0},{0,-1},{0,1}};
     int[][] Board;
     
-    
+    /* 3. bfs 구현 */
     int bfs(Point src, Point dst) {
         boolean[][] visited = new boolean[4][4];
         Queue<Point> q = new LinkedList<>();
-        // queue에 inqueue
+        // 3-1 queue에 inqueue
         q.add(src);
         while(!q.isEmpty()) {
-            // queue에서 dequeue
+            // 3-2 queue에서 dequeue
             Point curr = q.poll();
-            // 도달한 위치 dst와 같으면 현재 curr의 조작횟수 return
+            // 3-3 도달한 위치 dst와 같으면 현재 curr의 조작횟수 return
             if(curr.row == dst.row && curr.col == dst.col)
                 return curr.cnt;
             
-            // 상,하,좌,우 네 방향으로 진행
+            // 3-4 상,하,좌,우 네 방향으로 진행
             for(int i = 0; i < 4; i++) {
                 int nr = curr.row + D[i][0], nc = curr.col + D[i][1];
-                //커서만 입력했을 경우
+                // 3-5 커서만 입력했을 경우
                 if(nr < 0 || nr > 3 || nc < 0 || nc > 3) {
                     continue;
                 }
@@ -141,7 +141,7 @@ class Solution {
                     q.add(new Point(nr, nc, curr.cnt+1));
                 }
                 
-                // ctrl키+커서를 함께 입력했을 경우 처리
+                // 3-6 ctrl키+커서를 함께 입력했을 경우 처리
                 for(int j = 0; j < 2; j++) {
                     if(Board[nr][nc] != 0) break;
                     if(nr + D[i][0] < 0 || nr + D[i][0] > 3
@@ -160,48 +160,49 @@ class Solution {
         return INF;
     }
 
+    /* 2. 순열 구현 */
     int permutate(Point src) {
         int ret = INF;
-        // 카드 종류는 1-6 가지
+        /* 2-1 카드 종류는 1-6 가지 */
         for(int num = 1; num <= 6; num++) {
             List<Point> card = new ArrayList<>();
-            // 4x4 배열
+            /* 2-2 4x4 배열 */
             for(int i = 0; i < 4; i++) {
                 for(int j = 0; j < 4; j++) {
-                    // 선택한 숫자카드와 일치하다면
+                    /* 선택한 숫자카드와 일치하다면 */
                     if(Board[i][j] == num) {
-                        //card list에 저장 - 동일한 숫자카드 2개 존재
+                        /* card list에 저장 - 동일한 숫자카드 2개 존재 */
                         card.add(new Point(i,j,0));
                     }
                 }
             }
             
-            // 입력한 숫자 카드가 없을 경우 continue
+            /* 2-3 입력한 숫자 카드가 없을 경우 continue */
             if(card.isEmpty()) continue;
             
-            // 순차 : 첫번째 카드 먼저 찾고 두번째 카드 찾을 조작 횟수
+            /* 2-4 순차 : 첫번째 카드 먼저 찾고 두번째 카드 찾을 조작 횟수 */
             int one = bfs(src, card.get(0))
                 + bfs(card.get(0), card.get(1)) + 2;
-            // 역순 : 두번째 카드 먼저 찾고 첫번째 카드 찾을 조작 횟수
+            /* 2-5 역순 : 두번째 카드 먼저 찾고 첫번째 카드 찾을 조작 횟수 */
             int two = bfs(src, card.get(1)) 
                 + bfs(card.get(1), card.get(0)) + 2;
             
-            //카드 찾았으면 해당 카드 제거
+            /* 2-6 카드 찾았으면 해당 카드 제거 */
             for(int i = 0; i < 2; i++) {
                 Board[card.get(i).row][card.get(i).col] = 0;
             }
             
-            // 순차로 찾았을 때
+            /* 2-7 순차로 찾았을 때 */
             ret = Math.min(ret, one + permutate(card.get(1)));
-            // 역순으로 찾았을 때
+            /* 2-8 역순으로 찾았을 때 */
             ret = Math.min(ret, two + permutate(card.get(0)));
             
-            // 재귀호출을 위해 복원 진행 - 2 카드 첫번째로 진행할때 1카드는 복원되어야 함.
+            /* 2-9 재귀호출을 위해 복원 진행 - 2 카드 첫번째로 진행할때 1카드는 복원되어야 함. */
             for(int i = 0; i < 2; i++) {
                 Board[card.get(i).row][card.get(i).col] = num;
             }
         }
-            // 재귀가 반복되다보면 모든 카드가 제거 되었을 것이고, 그럴 경우 return
+        // 재귀가 반복되다보면 모든 카드가 제거 되었을 것이고, 그럴 경우 return
         if(ret == INF) return 0;
         
         return ret;
@@ -209,7 +210,7 @@ class Solution {
     public int solution(int[][] board, int r, int c) {
         Board = board;
         
-        // 순서가 존재하기 때문에 순열을 이용해서 구현
+        // 1. 순서가 존재하기 때문에 순열을 이용해서 구현
         return permutate(new Point(r,c,0));
     }
 }

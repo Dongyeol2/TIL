@@ -85,6 +85,8 @@
 
 ### :bulb: [DFS/BFS](./03.algorithm/mdfile/04_bfs_dfs.md)
 
+### :bulb: [2020 KAKAO BLIND RECURITMENT](./03.algorithm/mdfile/2020_kakao_blind_recuruitment.md)
+
 ### :bulb: [2021 KAKAO BLIND RECURITMENT](./03.algorithm/mdfile/2021_kakao_blind_recuruitment.md)
 
 ---

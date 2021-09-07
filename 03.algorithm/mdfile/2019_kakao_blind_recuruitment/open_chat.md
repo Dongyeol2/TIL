@@ -122,3 +122,52 @@ class Solution {
 }
 ```
 
+
+
+##### :grey_question: StringTokenizer 클래스란?
+
+하나의 문자열을 여러개의 토큰으로 분리하는 클래스
+
+**StringTokenizer 생성자**
+
+```java
+/* 1. space 기준으로 문자열 분리 */
+StringTokenizer st = new StringTokenizer(String);
+
+/* 
+2. 구분자를 기준으로 문자열 분리 
+구분자는 하나가 아니여도 가능하다.
+ex -(하이픈)과 :(콜론)으로 구분해야 할 경우
+StringTokenizer st = new StringTokenizer(str, "-:");
+*/
+StringTokenizer st = new StringTokenizer(String, delim);
+
+
+/* 3. 구분자를 기준으로 문자열 분리. 단, true일 경우 구분자도 token에 포함, false일 경우 구분자는 토큰에 포함X */
+StringTokenizer st = new StringTokenizer(String, delim, boolean)
+```
+
+
+
+**StringTokenizer Method**
+
+| return  |        method 명         |                             기능                             |
+| :-----: | :----------------------: | :----------------------------------------------------------: |
+| boolean |     hasMoreTokens()      | 남아있는 token이 있으면 true return, 더이상 token이 없으면 false return |
+| String  |       nextToken()        |                 객체에서 다음 token을 return                 |
+| String  | nextToken(String, delim) |               delim 기준으로 다음 token을 반환               |
+| boolean |    hasMoreElements()     | hasMoreTokens와 동일하지만 element보다 token으로 된 method를 주로 사용 |
+| Object  |      nextElement()       |  nextToken method와 동일하지만 문자열이 아닌 객체를 return   |
+|   int   |      countTokens()       |                   총 token의 개수를 return                   |
+
+
+
+**StringTokenizer 와 Split**
+
+둘 다 모두 문자열을 파싱하는데 사용한다.
+
+- StringTokenizer는 java.util에 포함되어 있는 **클래스**, split은 String클래스에 속해있는 **메소드**이다.
+- StringTokenizer는 문자 또는 문자열로 문자열을 구분한다면, split은 정규표현식으로 문자열을 구분한다.
+- StringTokenizer는 빈 문자열을 토큰으로 인식하지 않는 반면, split은 빈 문자열을 토큰으로 인식한다.
+- StringTokenizer는 결과값이 문자열이라면, split은 결과값이 문자열 배열.
+- 

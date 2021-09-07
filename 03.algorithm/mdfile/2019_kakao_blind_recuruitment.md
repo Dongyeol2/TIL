@@ -1,0 +1,1 @@
+### :one: [오픈 채팅방](./2019_kakao_blind_recuruitment/open_chat.md)

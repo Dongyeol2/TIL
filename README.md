@@ -79,7 +79,9 @@
 
 ### :bulb: [알고리즘이란](./03.algorithm/mdfile/01_algorithm_intro.md)
 
-### :bulb: [정렬(sorting)](./03.algorithm/mdfile/05_sorting.md)
+### :bulb: [정렬(Sorting)](./03.algorithm/mdfile/05_sorting.md)
+
+### :bulb: [스택/큐(Stack/Queue)](./03.algorithm/mdfile/06_stack_queue.md)
 
 ### :bulb: [순열(Permutation)](./03.algorithm/mdfile/02_permutation.md)
 

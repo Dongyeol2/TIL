@@ -1,161 +1,89 @@
-## 알고리즘을 해야하는 이유
+# 알고리즘(Algorithm)의 종류, 분류
 
-> 알고리즘을 공부하는 이유는 코드의 효율성을 높이기 위해서 이다.
->
-> 나는 입사를 위한 코딩테스트로 알고리즘을 처음 접하였는데, 남들이 짠 코드를 리뷰하다보면 정말 세상에는 ㅁㅊㄴ들이 많다는 것을 느낀다.. 그래서 알고리즘을 하다보면 더 효율적이고 빠르게 문제를 풀고 싶다는 생각을 많이 했고, 나의 코드를 정리하고 기록하기 위해서 알고리즘 정리를 하려고 한다.
+## 1. 기본 알고리즘 종류
 
-## 알고리즘이란?
+### 1. 1 Recursive Call Algorithm (재귀 함수)
 
-알고리즘의 사전적인 의미는 어떠한 문제를 해결하기 위한 절차를 공식화 한 형태로 표현한 것이다.
+- Maximum value or Minimum value (최대값 또는 최소값 찾기) : 가장 큰 숫자를 기억해가며 진행함
+- Euclid (유클리드 알고리즘) : 두 정수의 최대공약수(GCD)를 빠르게 구하기
+- Factorial (팩토리얼)
+- Fibonacci (피보나찌 수열)
+- Sum (합계)
 
-프로그래밍에서 알고리즘은 결과값을 얻기 위한 과정이고 정확하고 효율적으로 결과값을 얻기 위해서는 알고리즘이 필요하다.
+### 1.2 Sorting Algorithm (정렬 알고리즘)
 
+- Selection Sort (선택 정렬)
+- Bubble Sort (버블 정렬)
+- Quick Sort (퀵 정렬)
+- Insertion Sort (삽입 정렬)
+- Shell Sort (쉘 정렬)
+- Heap Sort (힙 정렬 )
+- Merge Sort (병합 정렬)
+- Radix Sort (기수 정렬)
 
+### 1.3 Searching Algorithm (탐색 알고리즘)
 
-## 알고리즘의 공부 순서
+- Sequential Search (순차 탐색) = Linear Search (선형탐색)
+- Binary Search (이진 탐색)
+- Red-Black tree (레드 블랙 트리)
 
-1. 기본 개념 이해
+### 1.4 Hash Algorithm (해시 알고리즘)
 
-2. 기본 알고리즘 코드 학습
+- Hash Table (해시 테이블)
 
-3. 쉬운 문제 풀기
+### 1.5 Graph Algorithm (그래프 알고리즘)
 
-4. 어려운 개념 이해 & 문제 풀기
+- Graph Traversal (그래프 순회)
+  - BFS(Breath First Search) (깊이 우선 검색)
+  - DFS(Depth First Search) (넓이 우선 검색)
+- Graph Search (그래프 탐색,검색)
+- MST : Minimum Spanning Tree (최소신장 트리)
+  - Kruscal’s algoritm (크루스 칼의 알고리즘)
+  - Prim algorithm (프라임 알고리즘)
+- Shortest Path (최단경로 알고리즘)
+  - Dijkstra (다익스트라)
 
-   ...
+### 1.6 String Matching Algorihm (문자열 검색 알고리즘)
 
-   > 알고리즘을 공부하기 위해서 필요한 개념이 크게 3가지가 있다.
-   >
-   > 1. 시간 복잡도
-   > 2. 자료 구조
-   > 3. 정렬
-   >
-   > 시간 복잡도 : 문제를 해결하는데 걸리는 시간과 입력의 함수 관계를 시간 복잡도라고 이야기 하는데 이를 고려하지 않으면 런타임에러를 계속해서 발생시킨다.
-   >
-   > EX) for 문을 이용해서 n번의 연산을 하게 될 경우 시간복잡도 : O(n)
-   >
-   > ​		일반적인 수식으로 표현할 경우 시간복잡도 : O(1)
-   >
-   > 
-   >
-   > - O(1) : 상수 형태. n의 값에 상관없이 일정한 양의 계산만 한다.
-   > - O(logn) : 로그형태
-   > - O(n) : 선형
-   > - O(nlogn) : 선형 로그 형태
-   > - O(n2),O(n3),... : 다차 형태
-   > - O(2n) : 지수 형태
-   > - O(n!) : 팩토리얼 형태
-   >
-   > 
-   >
-   > 자료구조
-   >
-   > ![자료구조](../image/datastruct.PNG)
-   >
-   > - 선형 자료구조 : 한 종류의 데이터가 선처럼 길게 나열된 자료구조
-   > - 비선형 자료구조 : 선형 자료구조가 아닌 모든 자료 구조. i번째 값을 탐색한 뒤의 i+1이 정해지지 않은 구조
-
-   
-
-## 이진탐색이란?
-
-이진탐색이란 데이터가 정렬돼 있는 배열에서 특정한 값을 찾아내는 알고리즘이다. 배열의 중간에 있는 임의의 값을 선택하여 찾고자 하는 값 X 와 비교한다. X가 중간 값보다 작으면 중간 값을 기준으로 좌측의 데이터들을 대상으로, X가 중간값보다 크면 배열의 우측을 대상으로 다시 탐색한다. 동일한 방법으로 다시 중간의 값을 임의로 선택하고 비교한다. 해당 값을 찾을 때까지 이 과정을 반복한다.
+- 긴 텍스트에서 짧은 패턴 문자열이 어디에 있는지를 찾는 것
 
 
 
-### 이진탐색 예시
+## 2. 알고리즘 설계기법
 
-오름차순으로 정렬되어 있는 배열이 있다. (이진 탐색시 반드시 정렬되어야 한다.)
+### 2.1 Divide and Conquer (분할정복)
 
-{17, 28, 43, 67, 88, 92, 100}
+- Merge Sort (병합 정렬)
+- Quick Sort (퀵 정렬)
+- Binary Search (이진 검색)
+- Strassen’s Matrix Multiplication (슈트라센 알고리즘)
+- Closest pair (points) (최근접 점쌍 문제)
 
-이 배열에서 이진 탐색을 이용하여 43의 값을 찾아보자.
+### 2.2 Dynamic Programming (동적 계획법)
 
-#### 첫 번째 시도
+- Fibonacci number series (피보나치 수열)
+- Knapsack problem (배낭 문제)
+- Tower of Hanoi (하노이의 탑)
+- All pair shortest path by Floyd-Warshall (Floyd-Warshall의 모든 페어 최단 경로)
+- Shortest path by Dijkstra (Dijkstra의 최단 경로)
+- Project scheduling (프로젝트 일정)
+- 0/1 Knapsack Problem
 
-우선 가운데에 위치한 임의의 값 67을 선택한다.
+### 2.3 Greedy Algorithm (탐욕 알고리즘)
 
-선택한 값 67과 찾고자 하는 값 43을 비교한다.
+- Huffman code (허프만 코드)
+- Travelling Salesman Problem (외판원 문제)
+- Prim’s Minimal Spanning Tree Algorithm (프림의 최소 신장트리 문제)
+- Kruskal’s Minimal Spanning Tree Algorithm (크루스칼의 최소 신장트리 문제)
+- Dijkstra’s Minimal Spanning Tree Algorithm (다익스트라의 최소 신장트리 문제)
+- Graph - Map Coloring
+- Graph - Vertex Cover
+- Job Scheduling Problem
+- Machine scheduling
+- Fractional Knapsack Problem (부분 배낭 문제)
+- Activity Selection Problem (활동 선택 문제)
 
-43 < 67 이므로 43은 67의 좌측에 존재한다는 것을 알 수 있다.
+### 2.4 Backtraking (백트래킹)
 
-#### 두 번째 시도
-
-67을 기준으로 좌측에 있는 배열 값들을 대상으로 다시 탐색을 진행한다.
-
-{17, 28, 43}
-
-마찬가지로 가운데의 임의의 값 28을 선택한다.
-
-28 < 43 이번에는 28이 43 보다 작으므로 28 우측에 위치하는 것을 알 수 있다.
-
-#### 세 번째 시도
-
-28의 우측을 기준으로 배열을 다시 설정해 보면
-
-{ 43 }
-
-배열에 값이 하나만 남게 되고 값을 확인해 보면
-
-43 == 43 원하는 값을 찾았다.
-
-#### 종료조건
-
-탐색의 종료 조건은 원하는 값을 찾으면 종료된다.
-
-운이 좋게 한 번에 찾을 수도 있고 위의 예제와 같이 마지막에 찾을 수도 있다.
-
-만약 원하는 값이 배열에 존재하지 않는다면 어떻게 종료될까?
-
-방금 살펴본 예제를 그대로 이용하여 40을 찾는다고 가정해보자.
-
-두 번째 시도까지는 동일하게 진행된다.
-
-세 번째 시도에서 값을 비교해보면, 40 < 43 으로 원하는 값 40 보다 작다. 배열의 좌측을 탐색해야 하는데 더 이상 남은 배열이 존재하지 않는다.
-
-이렇게 탐색하고자 하는 배열이 더이상 존재하지 않으면 찾고자 하는 값이 배열에 존재하지 않는다는 것을 판단할 수 있고 탐색을 종료한다.
-
-#### 이진 탬색 소스코드 구현방법
-
-**반복문을 이용한 방법**
-
-```java
-int BSearch(int arr[], int target) {
-    int low = 0;
-    int high = arr.length - 1;
-    int mid;
-
-    while(low <= high) {
-        mid = (low + high) / 2;
-
-        if (arr[mid] == target)
-            return mid;
-        else if (arr[mid] > target)
-            high = mid - 1;
-        else
-            low = mid + 1;
-    }
-    return -1;
-}
-```
-
-
-
-**재귀함수를 이용한 방법 **
-
-```java
-int BSearchRecursive(int arr[], int target, int low, int high) {
-    if (low > high)
-        return -1;
-
-    int mid = (low + high) / 2;
-    if (arr[mid] == target)
-        return mid;
-    else if (arr[mid] > target)
-        return BSearchRecursive(arr, target, low, mid-1);
-    else
-        return BSearchRecursive(arr, target, mid+1, high);
-}
-```
-
-이진탐색의 시간복잡도 : O(logN)
+- Backtracking (백 트래킹)
+- N Queens (N-퀸)

@@ -1,29 +1,4 @@
-글에 앞서..
-
-재귀적 호출에 대한 개념을 먼저 알아보자. 그 이유는 알고리즘에서 해당 호출방식을 자주 활용하기 때문이다.
-
-### 재귀함수의 기본적인 이해란
-
-:grey_question:재귀함수란?
-함수내에서 자기 자신을 다시 호출하는 함수
-자신이 수행할 작업을 유사한 형태의 여러 조각으로 쪼갠 뒤 그 중 한 조각을 수행하고, 나머지를 자기 자신을 호출해 실행하는 함수
-
-:grey_question: 재귀함수 호출 방식
-
-```java
-void RecurciveFunction(void)
-{
-	printf("Recursive function example1 \n")
-	RecursiveFunction();
-}
-```
-
-**기저사례 (base case)**
-:arrow_right: 더 이상 쪼개지지 않는 가장 작은 작업, 즉 최소한의 작업에 도달했을 때 답을 곧장 반환하는 조건문에 포함될 내용
-
-:arrow_right: 기저 사례를 선택할 때는 존재하는 모든 입력이 항상 기저 사례의 답을 이용해 계산될 수 있도록 신경써야 한다.
-
-# 완전 탐색(Exchustive search)
+## 완전 탐색(Exchustive search)
 
 :one: 완전탐색이란?
 

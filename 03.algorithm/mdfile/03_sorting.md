@@ -4,12 +4,6 @@
 
 :two: [직업군 추천하기(프로그래머스)](./sorting/2_job_recommandation.md)
 
-
-
-
-
-
-
 ---
 
 ### ArrayList 정렬하기 (오름차순, 내림차순, 사용자 정의)

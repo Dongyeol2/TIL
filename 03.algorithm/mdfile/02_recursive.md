@@ -1,4 +1,14 @@
-# 순열(Permutation) 알고리즘
+## Recursive Call Algorithm (재귀 함수)
+
+- Maximum value or Minimum value (최대값 또는 최소값 찾기) : 가장 큰 숫자를 기억해가며 진행함
+- Euclid (유클리드 알고리즘) : 두 정수의 최대공약수(GCD)를 빠르게 구하기
+- Factorial (팩토리얼)
+- Fibonacci (피보나찌 수열)
+- Sum (합계)
+
+
+
+### 순열(Permutation) 알고리즘
 
 1, 2, 3 와 같은 숫자들이 있다. 이것을 중복하지 않고 순서를 끌어내는 방법을 생각해 보자
 

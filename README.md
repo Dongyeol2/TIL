@@ -79,15 +79,17 @@
 
 ### :bulb: [알고리즘이란](./03.algorithm/mdfile/01_algorithm_intro.md)
 
-### :bulb: [정렬(Sorting)](./03.algorithm/mdfile/05_sorting.md)
+### :bulb: [재귀함수(Recursive Call Algo.)](./03.algorithm/mdfile/02_recursive.md)
 
-### :bulb: [스택/큐(Stack/Queue)](./03.algorithm/mdfile/06_stack_queue.md)
+### :bulb: [정렬(Sorting Algo.)](./03.algorithm/mdfile/03_sorting.md)
 
-### :bulb: [순열(Permutation)](./03.algorithm/mdfile/02_permutation.md)
+### :bulb: [탐색(Searching Algo.)](./03.algorithm/mdfile/04_searching.md)​
 
-### :bulb: [완전탐색](./03.algorithm/mdfile/03_complete_search.md)​
+### :bulb: [해시(Hash Algo.)](./03.algorithm/mdfile/05_hash.md)
 
-### :bulb: [DFS/BFS](./03.algorithm/mdfile/04_bfs_dfs.md)
+### :bulb: [그래프(Graph Algo.)](./03.algorithm/mdfile/06_graph.md)
+
+### :bulb: [문자열 검색(String Matching Algo.)](./03.algorithm/mdfile/07_string.md)
 
 ### :bulb: [2019 KAKAO BLIND RECURITMENT](./03.algorithm/mdfile/2019_kakao_blind_recuruitment.md)
 
@@ -142,18 +144,6 @@
 ---
 
 <br>
-
-# :books: PART 5 .C
-
-### :zero::one: [파일입출력](./05.C/01.file_io.md)
-
-
-
----
-
-<br>
-
-
 
 #  :books: [PART 6 .CCNA](./06.CCNA.md)
 

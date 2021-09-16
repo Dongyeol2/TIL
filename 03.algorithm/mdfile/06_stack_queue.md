@@ -1,1 +1,0 @@
-:one: [짝지어 제거하기(프로그래머스-스택)](./stack_queue/1_remove_by_pair.md)

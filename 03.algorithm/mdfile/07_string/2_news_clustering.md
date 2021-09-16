@@ -140,3 +140,65 @@ class Solution {
 }
 ```
 
+
+
+#### **문제 풀이2**
+
+```java
+/* 
+공집합에 대한 이해 필요 
+ArrayList의 remove 함수는 index를 기준으로 list에서 제거할 수 도 있지만,
+object값을 기준으로 remove할 수 있다는것을 명심.
+arr.remove(str) -> arr list안에 str있으면 true, 없으면 false 반환. 
+*/
+
+import java.util.*;
+
+class Solution {
+    public int solution(String str1, String str2) {
+        str1 = str1.toLowerCase();
+        str2 = str2.toLowerCase();
+        
+        List<String> strArr1 = new ArrayList<String>();
+        List<String> strArr2 = new ArrayList<String>();
+        
+        for(int i = 0; i < str1.length()-1; i++) {
+            char first = str1.charAt(i);
+            char second = str1.charAt(i+1);
+            if(first >= 'a' && first <= 'z' &&
+               second >= 'a' && second <= 'z')
+                strArr1.add(str1.substring(i,i+2));
+        }
+        
+        for(int i = 0; i < str2.length()-1; i++) {
+            char first = str2.charAt(i);
+            char second = str2.charAt(i+1);
+            if(first >= 'a' && first <= 'z' &&
+               second >= 'a' && second <= 'z')
+                strArr2.add(str2.substring(i,i+2));
+        }
+        
+        Collections.sort(strArr1);
+        Collections.sort(strArr2);
+        
+        List<String> interaction = new ArrayList<String>();
+        List<String> union = new ArrayList<String>();
+        for(String str : strArr1) {
+            if(strArr2.remove(str))
+                interaction.add(str);
+            union.add(str);
+        }
+        for(String str : strArr2)
+            union.add(str);
+        
+        double jacquard = (double)interaction.size()/(double)union.size();
+        if(union.size() == 0)
+            jacquard = 1.0;
+ 
+        double answer = jacquard*65536;
+
+        return (int)answer;
+    }
+}
+```
+

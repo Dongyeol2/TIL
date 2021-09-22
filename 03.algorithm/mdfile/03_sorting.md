@@ -1,8 +1,8 @@
 
 
-:one: [복서 정렬하기(프로그래머스)](./sorting/1_box_sorting.md)
+:one: [복서 정렬하기(프로그래머스)](./03_sorting/1_box_sorting.md)
 
-:two: [직업군 추천하기(프로그래머스)](./sorting/2_job_recommandation.md)
+:two: [직업군 추천하기(프로그래머스)](./03_sorting/2_job_recommandation.md)
 
 ---
 

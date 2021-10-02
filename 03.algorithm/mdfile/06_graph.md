@@ -1,5 +1,7 @@
 :one: [거리두기 확인하기(BPS)](./06_graph/1_check_the_distance.md)
 
+:one: [네트워크(DFS)](./06_graph/2_network.md)
+
 ---
 
 

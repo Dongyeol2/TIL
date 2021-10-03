@@ -8,3 +8,27 @@
 
 :four: [숫자 문자열과 영단어(2021 카카오 채용연계형 인턴쉽)](./07_string/5_number_string.md)
 
+---
+
+##### **string 이차원 배열 정렬**
+
+```java
+public void sort(String[][] tickets) {
+        Arrays.sort(tickets, new Comparator<String[]>() {
+            public int compare(String[] o1, String[] o2) {
+                /* 1. 내림차순 1번째 열 기준 */
+                if(o1[1].compareTo(o2[1]) > 0)
+                    return 1;
+                else
+                    return -1;
+                
+                /* 2. 오름차순 1번째 열 기준 */
+            	if(o1[1].compareTo(o2[1]) < 0)
+                    return 1;
+                else
+                    return -1
+            }
+        });
+    }
+```
+

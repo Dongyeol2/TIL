@@ -4,6 +4,8 @@
 
 :three:[단어 변환​(DFS)](./06_graph/3_conversion_word.md)
 
+:four:[여행 경로(DFS)](./06_graph/4_travel_route.md)
+
 ---
 
 

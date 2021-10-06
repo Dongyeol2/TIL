@@ -4,7 +4,40 @@
 
 :two: [직업군 추천하기(프로그래머스)](./03_sorting/2_job_recommandation.md)
 
+:three: [k 번째수(프로그래머스)](./03_sorting/3_kth_number.md)
+
 ---
+
+### Array(배열) 함수 정리
+
+**1. 특정 인덱스를 기준으로 배열을 자르기**
+
+`Arrays.copyOfRange()`
+
+```java
+// 1. 원본 배열
+int[] arr = {0, 1, 2, 3, 4, 5};
+// 2. 배열을 자를 index
+int position = 3;
+// 3. 배열 자르기
+int[] arr1 = Arrays.copyOfRange(arr, 0, position);
+int[] arr2 = Arrays.copyOfRange(arr, position, arr.length);
+// 4. 자른 배열 출력
+System.out.println(Arrays.toString(arr1)); // [0, 1, 2]
+System.out.println(Arrays.toString(arr2)); // [3, 4, 5]
+
+출처: https://hianna.tistory.com/619 [어제 오늘 내일]
+```
+
+**2. 특정값의 인덱스 구하기**
+
+- 배열의 경우 `Arrays.asList(array).indexOf(value);`
+
+  배열에서는 indexOf()를 지원하지 않고, ArrayList 자료구조에서만 지원하므로 asList()를 통해 변환시켜 인덱스를 구해야한다.
+
+- Stinrg, List의 경우 `str.indexOf(value)`, `list.indexOf(value)`
+
+
 
 ### ArrayList 정렬하기 (오름차순, 내림차순, 사용자 정의)
 

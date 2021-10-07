@@ -320,3 +320,95 @@ FruitNameComparator의 경우 compare() 메소드 안에서, 문자열을 비교
 
 
 출처: https://hianna.tistory.com/569 [어제 오늘 내일]
+
+
+
+## LinkedHashMap을 이용하여 정렬
+
+LinkedHashMap는 Map에 입력한 순서가 보장되는 클래스입니다. HashMap을 원하는 순서대로 정렬하고 이 순서대로 다시 LinkedHashMap에 입력하면 정렬된 순서대로 출력할 수 있습니다.
+
+### Sort by key
+
+`Map.Entry`를 리스트로 가져와 key 값으로 정렬하고, 정렬된 순서대로 LinkedHashMap에 추가하면 됩니다.
+
+구현된 코드는 다음과 같습니다.
+
+```java
+Map<String, String> map = new LinkedHashMap<>();
+map.put("Nepal", "Kathmandu");
+map.put("United States", "Washington");
+map.put("India", "New Delhi");
+map.put("England", "London");
+map.put("Australia", "Canberra");
+
+Map<String, String> result = sortMapByKey(map);
+for (Map.Entry<String, String> entry : result.entrySet()) {
+    System.out.println("Key: " + entry.getKey() + ", "
+            + "Value: " + entry.getValue());
+}
+
+
+public static LinkedHashMap<String, String> sortMapByKey(Map<String, String> map) {
+    List<Map.Entry<String, String>> entries = new LinkedList<>(map.entrySet());
+    Collections.sort(entries, (o1, o2) -> o1.getKey().compareTo(o2.getKey()));
+
+    LinkedHashMap<String, String> result = new LinkedHashMap<>();
+    for (Map.Entry<String, String> entry : entries) {
+        result.put(entry.getKey(), entry.getValue());
+    }
+    return result;
+}
+```
+
+결과를 보면 key를 기준으로 오름차순으로 정렬되었습니다.(알파벳 순서)
+
+```log
+Key: Australia, Value: Canberra
+Key: England, Value: London
+Key: India, Value: New Delhi
+Key: Nepal, Value: Kathmandu
+Key: United States, Value: Washington
+```
+
+### Sort by value
+
+`Map.Entry`를 리스트로 가져와 value를 기준으로 정렬하고, 정렬된 순서대로 LinkedHashMap에 추가하면 됩니다.
+
+구현된 코드는 다음과 같습니다.
+
+```java
+Map<String, String> map = new LinkedHashMap<>();
+map.put("Nepal", "Kathmandu");
+map.put("United States", "Washington");
+map.put("India", "New Delhi");
+map.put("England", "London");
+map.put("Australia", "Canberra");
+
+Map<String, String> result = sortMapByValue(map);
+for (Map.Entry<String, String> entry : result.entrySet()) {
+    System.out.println("Key: " + entry.getKey() + ", "
+            + "Value: " + entry.getValue());
+}
+
+
+public static LinkedHashMap<String, String> sortMapByValue(Map<String, String> map) {
+    List<Map.Entry<String, String>> entries = new LinkedList<>(map.entrySet());
+    Collections.sort(entries, (o1, o2) -> o1.getValue().compareTo(o2.getValue()));
+
+    LinkedHashMap<String, String> result = new LinkedHashMap<>();
+    for (Map.Entry<String, String> entry : entries) {
+        result.put(entry.getKey(), entry.getValue());
+    }
+    return result;
+}
+```
+
+결과를 보면 value를 기준으로 오름차순으로 정렬되었습니다.(알파벳 순서)
+
+```log
+Key: Australia, Value: Canberra
+Key: Nepal, Value: Kathmandu
+Key: England, Value: London
+Key: India, Value: New Delhi
+Key: United States, Value: Washington
+```

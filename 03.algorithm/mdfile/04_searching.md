@@ -2,6 +2,8 @@
 
 :two: [방문 길이(프로그래머스)](./04_searching/2_visit_length.md)
 
+:three: [키패드 누르기(프로그래머스)](./04_searching/3_push_keypad.md)
+
 ---
 
 

@@ -41,3 +41,37 @@ class Solution {
     }
 }
 ```
+
+
+
+##### **문제풀이2**
+
+```java
+/* 
+split() 함수 이용 x
+StringBuilder() 사용 
+*/
+
+import java.util.*;
+
+class Solution {
+    public String solution(String s) {
+        StringBuilder answer = new StringBuilder();
+        String first = String.valueOf(s.charAt(0)).toUpperCase();
+        
+        answer.append(first);
+        for(int i = 1; i < s.length(); i++) {
+            String idx = String.valueOf(s.charAt(i));
+            if(idx.equals(" "))
+                answer.append(' ');
+            else if(s.charAt(i-1) == ' ')
+                answer.append(idx.toUpperCase());
+            else
+                answer.append(idx.toLowerCase());
+        }
+        
+        return answer.toString();
+    }
+}
+```
+

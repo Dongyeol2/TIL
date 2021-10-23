@@ -6,7 +6,9 @@
 
 :four: [영어 끝말잇기(프로그래머스)](./07_string/4_end_to_end.md)
 
-:four: [숫자 문자열과 영단어(2021 카카오 채용연계형 인턴쉽)](./07_string/5_number_string.md)
+:five: [숫자 문자열과 영단어(2021 카카오 채용연계형 인턴쉽)](./07_string/5_number_string.md)
+
+:six: [JadenCase 문자열 만들기(프로그래머스)](./07_string/6_jadencase.md)
 
 ---
 

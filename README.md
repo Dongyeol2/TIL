@@ -119,9 +119,9 @@
 
 ### :zero::eight: [IP QoS](./04.HDN/11.IPQoS.md)
 
-### :zero::nine: [LACP](./04.HDN/12.lacpstp.md)
+### :zero::nine: [LACP](./04.HDN/12.lacp.md)
 
-### :one::zero: [STP](./04.HDN/12.lacpstp.md)
+### :one::zero: [STP](./04.HDN/19.stp.md)
 
 ### :one::one: [SNMP](./04.HDN/13.snmp.md)
 

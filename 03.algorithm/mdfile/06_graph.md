@@ -6,6 +6,8 @@
 
 :four:[여행 경로(DFS)](./06_graph/4_travel_route.md)
 
+:five:[단체 사진 찍기(DFS)](./06_graph/5_togather_picture.md)
+
 ---
 
 

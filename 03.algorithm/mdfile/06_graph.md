@@ -8,6 +8,10 @@
 
 :five:[단체 사진 찍기(DFS)](./06_graph/5_togather_picture.md)
 
+:six:[카카오프렌즈 컬러링북(DFS)](./06_graph/6_coloring_book.md)
+
+:seven:[수식 최대화(DFS)](./06_graph/7_maximum_formula.md)
+
 ---
 
 
